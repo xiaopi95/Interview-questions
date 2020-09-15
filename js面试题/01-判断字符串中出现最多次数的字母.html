@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+<script>
+    //原始的字符串
+    let str = "aaabbbcccaaabbbaaabbbbbbbbbb";
+    //出现次数最多的字符
+    let value = null;
+    //出现的次数
+    let index = 0;
+    //思路--把字符串转换为数组然后排序，在转换为字符串
+    let newStr = str.split("").sort().join("");
+    let reg = /(\w)\1+/g;
+    newStr.replace(reg,function (item,ind) {
+        if(index < item.length){
+            index = item.length;
+            value = ind;
+        }
+    })
+
+    console.log(`出现次数最多的字符是${value}，出现的次数是${index}`)
+</script>
+</body>
+</html>
